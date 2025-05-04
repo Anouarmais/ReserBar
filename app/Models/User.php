@@ -29,6 +29,10 @@ class User extends Authenticatable
         'gustos',
     ];
 
+    protected $casts = [
+        'gustos' => 'array',
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *

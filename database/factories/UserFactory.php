@@ -24,13 +24,17 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+
+        $tiposComida = ['italiana', 'japonesa', 'mexicana', 'china', 'arabe', 'francesa', 'espaniola', 'tailandesa'];
+
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
-            'gustos' => fake()->sentence(10),
+            'gustos' => collect($tiposComida)->random(rand(1, 4))->values()->all(),
+
         ];
     }
 
