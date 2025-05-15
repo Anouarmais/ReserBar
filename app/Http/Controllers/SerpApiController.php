@@ -11,13 +11,15 @@ class SerpApiController extends Controller
     public function index()
     {
 
-        // Coordenadas aproximadas de las zonas
         $zonas = [
-            'norte'  => '@38.031059,-1.130090,14z',
-            'centro' => '@37.986059,-1.130090,14z',
-            'sur'    => '@37.950059, -1.130090,14z',
-            'este'   => '@37.986059,-1.100090,14z',
-            'oeste'  => '@37.986059,-1.160090,14z',
+        //    'norte'  => '@38.031059,-1.130090,14z',
+        //    'centro' => '@37.986059,-1.130090,14z',
+        //    'sur'    => '@37.950059, -1.130090,14z',
+        //    'este'   => '@37.986059,-1.100090,14z',
+        //    'oeste'  => '@37.986059,-1.160090,14z',
+
+         
+
         ];
 
         $resultadosTotales = [];
@@ -60,7 +62,7 @@ class SerpApiController extends Controller
             }, $results);
 
             foreach ($DatosResturant as $data) {
-                if (!Restaurante::where('nombre', $data['nombre'])->where('direccion', $data['direccion'])->exists()) {
+                if (!Restaurante::where('nombre', $data['nombre'])->where('direccion', $data['direccion'])->where('telefono', $data['telefono'])->exists()) {
                     Restaurante::create($data);
                 }
             }
