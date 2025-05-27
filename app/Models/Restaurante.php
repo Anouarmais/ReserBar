@@ -36,6 +36,9 @@ class Restaurante extends Authenticatable
         'popular_por',
         'parking',
         'amenidades',
+        'zona',
+        'ciudad/pedania',
+        'region',
         'clicks',
     ];
 

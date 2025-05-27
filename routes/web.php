@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SerpApiController;
+use App\Http\Controllers\RestauranteController;
 
 
 Route::get('/', function () {
@@ -20,7 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::get('/buscar', [RestauranteController::class, 'form'])->name('restaurantes.form');
+Route::get('/resultados', [RestauranteController::class, 'buscar'])->name('restaurantes.buscar');
 
 Route::get('/serpApi', [SerpApiController::class, 'index']);
 
