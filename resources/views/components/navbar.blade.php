@@ -33,7 +33,7 @@
         <button class="bg-teal-700 text-white px-4 py-2 rounded text-sm">Vender ahora</button>
         <span class="text-lg select-none cursor-pointer">🔔</span>
         <span class="text-lg select-none cursor-pointer">💌</span>
-
+        <span class="text-lg select-none cursor-pointer">🤍</span>
        <img src="../../../img/ss.png" alt="User" class="rounded-full w-7 h-7" />
 
         <span class="text-sm">User</span>
