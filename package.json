@@ -7,7 +7,11 @@
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
+<<<<<<< HEAD
         "@tailwindcss/vite": "^4.1.8",
+=======
+        "@tailwindcss/vite": "^4.1.7",
+>>>>>>> front
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
         "axios": "^1.8.2",
