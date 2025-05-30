@@ -2,27 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 use App\Models\Restaurante;
 
 class SerpApiController extends Controller
 {
     public function index()
     {
-
         $zonas = [
-        //    'norte'  => '@38.031059,-1.130090,14z',
-        //    'centro' => '@37.986059,-1.130090,14z',
-        //    'sur'    => '@37.950059, -1.130090,14z',
-        //    'este'   => '@37.986059,-1.100090,14z',
-        //    'oeste'  => '@37.986059,-1.160090,14z',
-
-         
-
+            'norte'  => '@38.031059,-1.130090,14z',
+            'centro' => '@37.986059,-1.130090,14z',
+            'sur'    => '@37.950059,-1.130090,14z',
+            'este'   => '@37.986059,-1.100090,14z',
+            'oeste'  => '@37.986059,-1.160090,14z',
         ];
 
         $resultadosTotales = [];
+
         foreach ($zonas as $zona => $coordenadas) {
             $query = [
                 'engine' => 'google_maps',
@@ -35,12 +32,11 @@ class SerpApiController extends Controller
 
             $response = Http::get('https://serpapi.com/search.json', $query);
 
-
             $results = $response->json()['local_results'] ?? [];
-
 
             $DatosResturant = array_map(function ($result) use ($zona) {
                 $extensions = collect($result['extensions'] ?? []);
+
                 return [
                     'nombre' => $result['title'] ?? null,
                     'rating' => $result['rating'] ?? null,
@@ -62,10 +58,14 @@ class SerpApiController extends Controller
             }, $results);
 
             foreach ($DatosResturant as $data) {
-                if (!Restaurante::where('nombre', $data['nombre'])->where('direccion', $data['direccion'])->where('telefono', $data['telefono'])->exists()) {
+                if (!Restaurante::where('nombre', $data['nombre'])
+                    ->where('direccion', $data['direccion'])
+                    ->where('telefono', $data['telefono'])
+                    ->exists()) {
                     Restaurante::create($data);
                 }
             }
+
             $resultadosTotales = array_merge($resultadosTotales, $DatosResturant);
         }
 
