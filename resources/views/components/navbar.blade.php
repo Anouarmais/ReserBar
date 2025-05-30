@@ -34,7 +34,7 @@
         <span class="text-lg select-none cursor-pointer">🔔</span>
         <span class="text-lg select-none cursor-pointer">💌</span>
         <span class="text-lg select-none cursor-pointer">🤍</span>
-         <span class="text-lg select-none cursor-pointer">🤍</span>
+
        <img src="../../../img/ss.png" alt="User" class="rounded-full w-7 h-7" />
 
         <span class="text-sm">User</span>
