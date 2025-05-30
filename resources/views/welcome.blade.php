@@ -25,8 +25,8 @@
 
             <!-- Header con botones -->
             <div class="relative z-10 flex justify-end p-6 space-x-4">
-                <a href="{{ route('login') }}" class="text-sm bg-gray-400 hover:bg-gray-700 text-white font-medium px-4 py-2 rounded-lg transition">Iniciar sesión</a>
-                <a href="{{ route('register') }}" class="text-sm bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition">
+                <a href="{{ route('login') }}" class="text-sm text-white hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition">Iniciar sesión</a>
+                <a href="{{ route('register') }}" class="text-sm text-white hover:text-blue-600 px-4 py-2 rounded-lg transition">
                     Registrarse
                 </a>
             </div>
