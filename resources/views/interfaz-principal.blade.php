@@ -8,5 +8,6 @@
 </head>
 <body>
     <x-navbar />
+<x-resultadoBusqueda />
 </body>
 </html>
