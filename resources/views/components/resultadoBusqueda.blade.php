@@ -59,7 +59,6 @@
     </div>
   </div>
 
-  <!-- Puedes repetir más tarjetas fijas aquí -->
 
 </div>
 
